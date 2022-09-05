@@ -1,0 +1,128 @@
+:root {
+  --color-btn: #31aba6;
+  --nav-height: 75px;
+}
+
+nav {
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.ortex-logo {
+  width: 150px;
+}
+
+/* LOGIN BUTTON */
+
+.btn-login {
+  font-family: inherit;
+  display: inline-block;
+  width: 6em;
+  height: 2.6em;
+  line-height: 2.5em;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid #fff;
+  transition: color 0.5s;
+  z-index: 1;
+  font-size: 17px;
+  border-radius: 6px;
+  font-weight: 500;
+  color: #fff;
+  background-color: transparent;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.btn-login:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  background: var(--color-btn);
+  height: 150px;
+  width: 200px;
+  border-radius: 50%;
+}
+
+.btn-login:hover {
+  border-color: var(--color-btn);
+  transition: all 0.3s;
+}
+
+.btn-login:before {
+  top: 100%;
+  left: 100%;
+  transition: all 0.7s;
+}
+
+.btn-login:hover:before {
+  top: -30px;
+  left: -30px;
+}
+
+.btn-login:active:before {
+  background: #31aba6;
+  transition: background 0s;
+}
+
+.welcome-container {
+  height: calc(100vh - var(--nav-height));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.title {
+  font-size: 60px;
+  white-space: nowrap;
+  border-right: 4px solid;
+  width: 16ch;
+  animation: typing 2s steps(16), blink .5s infinite step-end alternate;
+  overflow: hidden;
+}
+
+@keyframes typing {
+  from { width: 0; }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+.paragraph {
+  width: 70%;
+  text-align: justify;
+  font-size: 24px;
+}
+
+@media only screen and (max-width: 760px) {
+  .title {
+    font-size: 50px;
+  }
+
+  .paragraph {
+    width: 80%;
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 560px) {
+  .welcome-container {
+    padding: 50px 0;
+    justify-content: unset;
+  }
+  
+  .title {
+    font-size: 36px;
+  }
+
+  .paragraph {
+    width: 90%;
+    font-size: 18px;
+  }
+}
