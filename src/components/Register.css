@@ -1,0 +1,14 @@
+.field-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 calc(450px - 95%);
+}
+
+.already-registered {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}

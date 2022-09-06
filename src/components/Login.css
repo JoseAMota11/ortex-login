@@ -1,5 +1,6 @@
 :root {
   --gray-color: #a1a2a3;
+  --color-btn: #31aba6;
 }
 
 .container {
@@ -28,8 +29,7 @@
   text-align: center;
   color: var(--gray-color);
   font-size: 16px;
-  margin-bottom: 10px;
-
+  margin-bottom: 20px;
 }
 
 .btn-container {
@@ -50,8 +50,13 @@
   color: #fff;
   background-color: transparent;
   border-radius: 6px;
-  border: 2px solid #31aba6;
+  border: 2px solid var(--color-btn);
   font-size: 16px;
+  transition: all 0.3s;
+}
+
+.login-google:hover, .login-apple:hover {
+  background-color: var(--color-btn);
 }
 
 .or-label__container {
@@ -79,8 +84,9 @@ form {
   align-items: center;
 }
 
-input[type="email"],
-input[type="password"] {
+.field-container input[type="email"],
+input[type="password"],
+input[type="text"] {
   width: 90%;
   height: 55px;
   margin: 10px 0;
@@ -188,7 +194,7 @@ input[type="password"] {
 }
 
 .member {
-  width: calc(450px - 10%);
+  width: 100%;
   display: flex;
   justify-content: center;
   margin: 10px 0;
