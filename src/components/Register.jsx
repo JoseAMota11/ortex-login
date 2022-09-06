@@ -2,11 +2,10 @@ import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AiOutlineMail, AiOutlineUser } from 'react-icons/ai';
 import { MdPassword } from 'react-icons/md';
-import { BsGoogle, BsApple } from 'react-icons/bs'
+import { BsGoogle, BsGithub } from 'react-icons/bs'
 import { useAuth } from '../context/authContext';
 import './Register.css'
-import { Message } from './Message';
-// import { async } from '@firebase/util';
+import { MessageError } from './MessageError';
 
 export const Register = () => {
 
@@ -34,32 +33,42 @@ export const Register = () => {
   }
 
   const navigation = useNavigate()
-  const { signUp } = useAuth()
+  const { login, loginWithGoogle, loginWithGitHub } = useAuth()
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
+    setError('')
     try {
-      await signUp(user.email, user.password)
+      signUp(user.email, user.password, user.username)
       navigation("/home")
     } catch (error) {
-      setError(error.message)
+      setError(error)
     }
+  }
+
+  const handleGoogleLogin = async () => {
+    await loginWithGoogle()
+    navigation("/home")
+  }
+
+  const handleGitHubLogin = async () => {
+    await loginWithGitHub()
+    navigation("/home")
   }
 
   return (
     <div className='container'>
-      {error && <Message message={error} />}
       <div className='login-container'>
         <h1 className='title-login'>Create an Account</h1>
         <h3 className='subtitle-login'>Get started with your free account</h3>
-        <div className='btn-container'>
-          <button className='login-google'>
-            <BsGoogle fontSize='20px' />
+        <div className="btn-container">
+          <button className="login-google" onClick={handleGoogleLogin}>
+            <BsGoogle fontSize="20px" />
             Login With Google
           </button>
-          <button className='login-apple'>
-            <BsApple fontSize='20px' />
-            Login With Apple
+          <button className="login-apple" onClick={handleGitHubLogin}>
+            <BsGithub fontSize="20px" />
+            Login With GitHub
           </button>
         </div>
         <div className='or-label__container'>
@@ -75,16 +84,18 @@ export const Register = () => {
               placeholder='Full Name'
               name='username'
               onChange={handleChange}
-            />
+              autoComplete="off"
+              />
           </div>
           <div className='field-container'>
             <AiOutlineMail fontSize='25px' />
             <input 
-              type="email" 
+              type="text" 
               placeholder='Email'
               name='email'
               onChange={handleChange}
-            />
+              style={{outline: error?.code === "auth/invalid-email" ? "2px solid #d44" : ""}}
+              />
           </div>
           <div className='field-container'>
             <MdPassword fontSize='25px' />
@@ -93,7 +104,8 @@ export const Register = () => {
               placeholder='Password'
               name='password'
               onChange={handleChange}
-            />
+              style={{outline: error?.code === "auth/weak-password" ? "2px solid #d44" : ""}}
+              />
           </div>
           <button type='submit' className='btn-login-2'>
             Register
@@ -103,6 +115,7 @@ export const Register = () => {
           Already have an account? 
           <Link to='/login' className='register'>Login</Link>
         </div>
+      {error && <MessageError message={error} />}
       </div>
     </div>  
   )

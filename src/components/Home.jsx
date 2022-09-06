@@ -1,17 +1,20 @@
 import React from 'react'
 import { useAuth } from '../context/authContext'
-import { Link } from 'react-router-dom'
 
 export const Home = () => {
 
-  const { user } = useAuth()
+  const { user, logout } = useAuth()
+
+  const handleLogout = async () => {
+    await logout()
+  }
 
   return (
     <>
       <div>Home</div>
-      <Link to='/'>
-        Back to Home
-      </Link>
+        <button onClick={handleLogout}>
+          Logout
+        </button>
     </>
   )
 }
