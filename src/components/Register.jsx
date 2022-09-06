@@ -33,13 +33,13 @@ export const Register = () => {
   }
 
   const navigation = useNavigate()
-  const { login, loginWithGoogle, loginWithGitHub } = useAuth()
+  const { signUp, loginWithGoogle, loginWithGitHub } = useAuth()
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     setError('')
     try {
-      signUp(user.email, user.password, user.username)
+      await signUp(user.email, user.password, user.username)
       navigation("/home")
     } catch (error) {
       setError(error)
@@ -47,13 +47,21 @@ export const Register = () => {
   }
 
   const handleGoogleLogin = async () => {
-    await loginWithGoogle()
-    navigation("/home")
+    try {
+      await loginWithGoogle()
+      navigation("/home")
+    } catch (error) {
+      setError(error)
+    }
   }
 
   const handleGitHubLogin = async () => {
-    await loginWithGitHub()
-    navigation("/home")
+    try {
+      await loginWithGitHub()
+      navigation("/home")
+    } catch (error) {
+      setError(error)
+    }
   }
 
   return (

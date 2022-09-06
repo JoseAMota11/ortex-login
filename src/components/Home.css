@@ -1,0 +1,66 @@
+:root {
+  --color-btn-out: #cf3434;
+  --subtitle-font-size: 26px
+}
+
+.btn-logout:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  background: var(--color-btn-out);
+  height: 150px;
+  width: 200px;
+  border-radius: 50%;
+}
+
+.btn-logout:hover {
+  border-color: var(--color-btn-out);
+  transition: all 0.3s;
+}
+
+.btn-logout:before {
+  top: 100%;
+  left: 100%;
+  transition: all 0.7s;
+}
+
+.btn-logout:hover:before {
+  top: -30px;
+  left: -30px;
+}
+
+.btn-logout:active:before {
+  background: var(--color-btn-out);
+  transition: background 0s;
+}
+
+.home-title {
+  letter-spacing: 1px;
+  font-size: 36px;
+}
+
+.web-socket-container {
+  width: 400px;
+  height: 240px;
+  background-color: #151515;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.price-container, .timestamp-container {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  align-items: center;
+  gap: 5px;
+}
+
+.price-container h3 {
+  font-size: var(--subtitle-font-size);
+}
+
+.timestamp-container h3 {
+  font-size: var(--subtitle-font-size);  
+}

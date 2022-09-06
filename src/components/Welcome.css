@@ -17,7 +17,7 @@ nav {
 
 /* LOGIN BUTTON */
 
-.btn-login {
+.btn-login, .btn-logout {
   font-family: inherit;
   display: inline-block;
   width: 6em;
@@ -64,7 +64,7 @@ nav {
 }
 
 .btn-login:active:before {
-  background: #31aba6;
+  background: var(--color-btn);
   transition: background 0s;
 }
 

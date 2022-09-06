@@ -3,8 +3,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   onAuthStateChanged,
-  getAuth,
-  updateCurrentUser,
+  updateProfile,
   signOut,
   GoogleAuthProvider,
   signInWithPopup,
@@ -23,19 +22,15 @@ export function AuthProvider({ children }) {
   const [user, setUser] = useState(null)
   
   const signUp = async (email, password, username) => {
-    const userCredential = await createUserWithEmailAndPassword(
+    await createUserWithEmailAndPassword(
       auth,
       email,
       password
-    );
-    // const authorization = getAuth()
-    // updateCurrentUser(authorization.currentUser, {
-    //   displayName: username
-    // }).then(() => {
-    //   console.log(userCredential.user)
-    // }).catch((error) => {
-    //   console.log(error);
-    // })
+    )
+
+    await updateProfile(auth.currentUser, { displayName: username }).catch(error => {
+      console.error(error)
+    })
   };
 
   const login = async (email, password) => {

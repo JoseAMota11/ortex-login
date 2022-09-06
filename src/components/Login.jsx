@@ -46,13 +46,21 @@ export const Login = () => {
   }
 
   const handleGoogleLogin = async () => {
-    await loginWithGoogle()
-    navigation("/home")
+    try {
+      await loginWithGoogle()
+      navigation("/home")
+    } catch (error) {
+      setError(error)
+    }
   }
 
   const handleGitHubLogin = async () => {
-    await loginWithGitHub()
-    navigation("/home")
+    try {
+      await loginWithGitHub()
+      navigation("/home")
+    } catch (error) {
+      setError(error)
+    }
   }
 
   return (
