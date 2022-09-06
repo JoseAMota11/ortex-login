@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useAuth } from '../context/authContext'
 import Logo from '../assets/ortex-logo-h.webp'
 import { Link } from 'react-router-dom';
@@ -24,15 +24,18 @@ export const Home = () => {
     }
   }
 
-  const ws = new WebSocket("ws://stream.tradingeconomics.com/?client=guest:guest")
-  ws.onopen = function() {
+  useEffect(() => {
+    const ws = new WebSocket("ws://stream.tradingeconomics.com/?client=guest:guest")
+    ws.onopen = function() {
     ws.send('{"topic": "subscribe", "to": "EURUSD:CUR"}')
-  }
-  ws.onmessage = event => {
-    const currectData = JSON.parse(event.data)
-    setPrice(currectData.price)
-    setTimestamp(currectData.dt)
-  }
+    }
+    ws.onmessage = event => {
+      const currentData = JSON.parse(event.data)
+      setPrice(currentData.price)
+      setTimestamp(currentData.dt)
+    }
+    return () => ws.close()
+  }, [])
 
   return (
     <>

@@ -92,6 +92,7 @@ export const Login = () => {
               name='email'
               onChange={handleChange}
               style={{outline: error?.code === "auth/user-not-found" ? "2px solid #d44" : ""}}
+              required
               />
           </div>
           <div className="field-container">
@@ -102,6 +103,7 @@ export const Login = () => {
               name='password'
               onChange={handleChange}
               style={{outline: error?.code === "auth/wrong-password" ? "2px solid #d44" : ""}}
+              required
             />
           </div>
           <div className="more-options">

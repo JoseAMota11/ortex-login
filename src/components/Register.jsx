@@ -103,6 +103,7 @@ export const Register = () => {
               name='email'
               onChange={handleChange}
               style={{outline: error?.code === "auth/invalid-email" ? "2px solid #d44" : ""}}
+              required
               />
           </div>
           <div className='field-container'>
@@ -113,6 +114,7 @@ export const Register = () => {
               name='password'
               onChange={handleChange}
               style={{outline: error?.code === "auth/weak-password" ? "2px solid #d44" : ""}}
+              required
               />
           </div>
           <button type='submit' className='btn-login-2'>

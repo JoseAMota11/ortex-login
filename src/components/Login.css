@@ -205,3 +205,94 @@ input[type="text"] {
 .register {
   color: #fff;
 }
+
+@media only screen and (max-width: 500px) {
+  .container {
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+  }
+
+  .login-container {
+    width: 100vw;
+    height: 100vh;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .title-login {
+    font-size: 26px;
+  }
+
+  .subtitle-login {
+    margin-bottom: 25px;
+  }
+
+  .login-google,
+  .login-apple {
+    width: 180px;
+    font-size: 14px;
+  }
+
+  .more-options {
+    width: 95%;
+    padding: 0;
+    margin: 10px 0;
+  }
+
+  .btn-container {
+    padding: 0;
+    width: 95%;
+    justify-self: center;
+    align-self: center;
+  }
+
+  .btn-login-2 {
+    width: 95%;
+  }
+}
+
+@media only screen and (max-width: 430px) {
+  .btn-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .login-google,
+  .login-apple {
+    width: 100%;
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 370px) {
+  .title-login {
+    font-size: 24px;
+  }
+
+  .more-options {
+    font-size: 14px;
+  }
+
+  .member {
+    font-size: 14px;
+  }
+
+  .login-google,
+  .login-apple {
+    height: 45px;
+  }
+
+  .field-container input[type="email"],
+  input[type="password"],
+  input[type="text"] {
+    height: 45px;
+  }
+
+  .btn-login-2 {
+    height: 45px;
+  }
+}
