@@ -14,11 +14,18 @@ export const Welcome = () => {
               className='ortex-logo'
             />
           </Link>
-          <Link to='/login'>
-            <button className='btn-login'>
-              Login
-            </button>
-          </Link>
+          <div className='login-register-container'>
+            <Link to='/login'>
+              <button className='btn-login'>
+                Login
+              </button>
+            </Link>
+            <Link to='/register'>
+              <button className='btn-login'>
+                Register
+              </button>
+            </Link>
+          </div>
         </nav>
       </header>
       <main className='welcome-container'>

@@ -14,6 +14,8 @@ export const MessageError = ({ message }) => {
       return "Error: The password is incorrect"
     } else if (messageError.code === "auth/account-exists-with-different-credential") {
       return "Error: This account exists with different credential"
+    } else {
+      return messageError.message
     }
   }
 

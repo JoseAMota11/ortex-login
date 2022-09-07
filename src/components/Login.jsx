@@ -112,7 +112,7 @@ export const Login = () => {
               <div className="checkmark"></div>
               <span>Remember Me</span>
             </label>
-            <Link to="/" className="forgot-option">
+            <Link to="/reset-password" className="forgot-option">
               Forgot Password?
             </Link>
           </div>

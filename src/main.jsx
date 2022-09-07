@@ -7,6 +7,7 @@ import { Login } from './components/Login';
 import { Home } from './components/Home';
 import { Register } from './components/Register';
 import { ProtectedRoute } from './components/ProtectedRoute';
+import { ResetPassword } from './components/ResetPassword';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -20,6 +21,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             </ProtectedRoute>
           }/>
           <Route path='login' element={<Login />}/>
+          <Route path='reset-password' element={<ResetPassword />}/>
           <Route path='register' element={<Register />}/>
         </Route>
       </Routes>

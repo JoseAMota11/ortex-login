@@ -126,3 +126,9 @@ nav {
     font-size: 18px;
   }
 }
+
+.login-register-container {
+  display: flex;
+  width: 220px;
+  justify-content: space-between;
+}

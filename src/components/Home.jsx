@@ -49,7 +49,7 @@ export const Home = () => {
             />
           </Link>
           <Link to='/login'>
-            <button className='btn-logout'>
+            <button className='btn-logout' onClick={handleLogout}>
               Logout
             </button>
           </Link>

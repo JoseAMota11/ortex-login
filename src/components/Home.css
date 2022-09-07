@@ -66,5 +66,26 @@
 }
 
 @media only screen and (max-width: 470px) {
-  
+  .web-socket-container {
+    width: 320px;
+  }
+
+  .home-title {
+    font-size: 24px;
+  }
+
+  .btn-logout {
+    width: 90px;
+    font-size: 16px;
+  }
+}
+
+@media only screen and (max-width: 380px) {
+  .web-socket-container {
+    flex-direction: column;
+  }
+
+  .home-title {
+    font-size: 24px;
+  }
 }
