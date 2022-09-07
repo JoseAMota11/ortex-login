@@ -19,6 +19,14 @@ export const useAuth = () => {
   return context;
 };
 
+export const useLoadingState = () => {
+  const [loading, setLoading] = useState(false)
+  return {
+    loading,
+    setLoading
+  }
+}
+
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
 

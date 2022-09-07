@@ -4,7 +4,7 @@ This is my solution for the [TechnicalTask](https://public.ortex.com/wp-content/
 
 ## Description
 
-This project is made using ReactJS, JavaScript, CSS, React-router-dom, React-icon, and Firebase.
+This project is made using ReactJS, JavaScript, CSS, React-router-dom, React-icon, React-loader-spinner and Firebase.
 
 ## How to use it?
 
@@ -22,10 +22,10 @@ npm i
 
 > (You need to have NodeJS installed)
 
-Once you have node_modules installed, go to your terminal and type the next command:
+Once you have **node_modules** installed, go to your terminal and type the next command:
 
 ```npm
 npm run dev
 ```
 
-Finally, open the browser on [Localhost](http://localhost:5173)
+Finally, open the browser on **http://localhost:5173**
