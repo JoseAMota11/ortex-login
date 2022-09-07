@@ -25,6 +25,10 @@ export const Home = () => {
   }
 
   useEffect(() => {
+    document.title = "Home"
+  }, [])
+
+  useEffect(() => {
     const ws = new WebSocket("ws://stream.tradingeconomics.com/?client=guest:guest")
     ws.onopen = function() {
     ws.send('{"topic": "subscribe", "to": "EURUSD:CUR"}')
@@ -60,7 +64,7 @@ export const Home = () => {
         <div className="web-socket-container">
           <div className="price-container">
             <h3>Price</h3>
-            <span>${price}</span>
+            <span>$USD{price}</span>
           </div>
           <div className="timestamp-container">
             <h3>Timestamp</h3>
