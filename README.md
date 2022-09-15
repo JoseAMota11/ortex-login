@@ -17,6 +17,7 @@ git clone https://github.com/JoseAMota11/ortex-login.git
 Then you should have a file with the project. Once you open the project on VS Code navigate to the directory on your terminal and type:
 
 ```npm
+cd <name_of_the_project>
 npm i
 ```
 
